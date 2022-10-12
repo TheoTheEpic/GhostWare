@@ -100,7 +100,7 @@ lib.createWindow = function(name, title, draggable)
 
 	local defualt_tab = false
 
-	MainGui.Name = name or "noname"
+	MainGui.Name = "RobloxLoadingGui"
 	MainGui.Parent = game.CoreGui
 	MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 	MainGui.ResetOnSpawn = false
@@ -132,7 +132,7 @@ lib.createWindow = function(name, title, draggable)
 	Title.BorderSizePixel = 0
 	Title.Size = UDim2.new(0, 168, 0, 33)
 	Title.Font = Enum.Font.GothamBold
-	Title.Text = "Animosity"
+	Title.Text = title
 	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Title.TextSize = 15.000
 

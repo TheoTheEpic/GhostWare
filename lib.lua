@@ -1,5 +1,5 @@
 local ver = "1.0.0"
-local changelog = "UNABLE TO GET CHANGELOG"
+local changelog = game:HttpGet("https://raw.githubusercontent.com/TheoTheEpic/GhostWare/main/changelog.txt") or "UNABLE TO GET CHANGELOG"
 
 local lib = {}
 
@@ -904,6 +904,20 @@ lib.createWindow = function(name, title, draggable)
 		draggable = false
 	elseif draggable == true then
 		coroutine.wrap(DragScript)()
+	end
+	
+	print("[GHOSTWARE] Running version " .. ver .. "! Changelog:\n" .. changelog)
+	
+        if isfile('GhostwareVer.txt') then
+		if readfile('GhostwareVer.txt') == ver then
+		else
+			print(changelog)
+			writefile('GhostwareVer.txt', ver)
+			WindowLib.notification("GhostWare | New Version", changelog)
+		end
+	else
+		writefile('GhostwareVer.txt', ver)
+		WindowLib.notification("GhostWare | Welcome", "This seems to be your first time using GhostWare! Thank you for purchasing GhostWare. If you encounter any issues please report it in the Discord.")
 	end
 	
 	return WindowLib

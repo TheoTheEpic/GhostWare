@@ -906,8 +906,6 @@ lib.createWindow = function(name, title, draggable)
 		coroutine.wrap(DragScript)()
 	end
 	
-	print("[GHOSTWARE] Running version " .. ver .. "! Changelog:\n" .. changelog)
-	
         if isfile('GhostwareVer.txt') then
 		if readfile('GhostwareVer.txt') == ver then
 		else

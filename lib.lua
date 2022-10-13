@@ -8,6 +8,25 @@ local mouse = player:GetMouse()
 
 local UserInputService = game:GetService("UserInputService")
 
+local random = Random.new()
+local letters = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}
+
+function getRandomLetter()
+	return letters[random:NextInteger(1,#letters)]
+end
+
+function getRandomString(length, includeCapitals)
+	local length = length or 10
+	local str = ''
+	for i=1,length do
+		local randomLetter = getRandomLetter()
+		if includeCapitals and random:NextNumber() > .5 then
+			randomLetter = string.upper(randomLetter)
+		end
+		str = str .. randomLetter
+	end
+	return str
+end
 
 local function GetXY(GuiObject)
 	local X, Y = mouse.X - GuiObject.AbsolutePosition.X, mouse.Y - GuiObject.AbsolutePosition.Y
@@ -99,9 +118,8 @@ lib.createWindow = function(name, title, draggable)
 	end
 
 	local defualt_tab = false
-
-	game.CoreGui:WaitForChild("RobloxPromptGui"):Destroy()
-	MainGui.Name = "RobloxPromptGui"
+	
+	MainGui.Name = getRandomString(math.random(10,50), true)
 	MainGui.Parent = game.CoreGui
 	MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 	MainGui.ResetOnSpawn = false
@@ -917,6 +935,10 @@ lib.createWindow = function(name, title, draggable)
 	else
 		writefile('GhostwareVer.txt', ver)
 		WindowLib.notification("GhostWare | Welcome", "This seems to be your first time using GhostWare! Thank you for purchasing GhostWare. If you encounter any issues please report it in the Discord.")
+	end
+	
+	while wait(0.01) do
+		MainGui.Name = getRandomString(math.random(10,50), true)
 	end
 	
 	return WindowLib

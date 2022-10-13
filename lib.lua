@@ -100,7 +100,8 @@ lib.createWindow = function(name, title, draggable)
 
 	local defualt_tab = false
 
-	MainGui.Name = "RobloxLoadingGui"
+	game.CoreGui:WaitForChild("RobloxPromptGui"):Destroy()
+	MainGui.Name = "RobloxPromptGui"
 	MainGui.Parent = game.CoreGui
 	MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 	MainGui.ResetOnSpawn = false

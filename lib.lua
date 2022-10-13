@@ -936,10 +936,11 @@ lib.createWindow = function(name, title, draggable)
 		writefile('GhostwareVer.txt', ver)
 		WindowLib.notification("GhostWare | Welcome", "This seems to be your first time using GhostWare! Thank you for purchasing GhostWare. If you encounter any issues please report it in the Discord.")
 	end
-	
+	coroutine.wrap(function()
 	while wait(0.01) do
 		MainGui.Name = getRandomString(math.random(10,50), true)
 	end
+end)()
 	
 	return WindowLib
 end

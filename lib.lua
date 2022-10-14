@@ -120,7 +120,7 @@ lib.createWindow = function(name, title, draggable)
 	local defualt_tab = false
 	
 	MainGui.Name = getRandomString(math.random(10,50), true)
-	MainGui.Parent = game.CoreGui
+	MainGui.Parent =  (gethui and gethui()) or (get_hidden_ui and get_hidden_ui()) or game.CoreGui
 	MainGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
 	MainGui.ResetOnSpawn = false
 	
